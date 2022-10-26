@@ -1,25 +1,23 @@
 import './App.css';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import NavBar from './components/NavBar/NavBar'
 
-
-import NavBarExample from './layouts/navbar';
-import Inicio from './components/inicio';
-import Galeria from './components/galeria';
-import Contacto from './components/contacto';
 
 function App() {
+
+
   return (
-    <div className="App">
+    <div className='App'>
       <BrowserRouter>
-<Routes>
-  <Route path='/' element={ <NavBarExample /> }>
-    <Route index element={ <Inicio /> } />
-    <Route path='galeria' element={ <Galeria /> } />
-    <Route path='contacto' element={ <Contacto /> } />
-    <Route path='*' element={ <Navigate replace to="/"/> }/>
-  </Route>
-</Routes> 
-</BrowserRouter>
+        <NavBar />
+          <Routes>
+            <Route path='/' element={<ItemListContainer greeting={'Descubrí Jujuy, activá tus sentidos'}/>} />  
+            <Route path='/item/:id' element={<ItemDetailContainer />}/>
+            <Route path='/category/:categoryId' element={<ItemListContainer/>}/>
+          </Routes>
+      </BrowserRouter>
     </div>
   );
 }
