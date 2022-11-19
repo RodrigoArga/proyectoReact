@@ -1,16 +1,8 @@
-nav{
-    display: flex;
-    justify-content: space-evenly;
-    margin-top: 30px;
-}
-
-h1{
-    font-style: roboto;
-    text-decoration:none;
-    
-}
-
-button:hover{
-    background-color: #10915b;
-}
+@keyframes {
+    0% {
+      opacity: 0;
+      background-color: #064e7e; }
+    100% {
+      opacity: 1;
+      background-color: #064e7e; } }
 

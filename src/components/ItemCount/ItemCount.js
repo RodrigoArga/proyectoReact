@@ -1,9 +1,8 @@
 import { useState } from "react";
 
-const Counter = () =>{
+const ItemCount = ({onConfirm, stock}) =>{
 
     const initial = 1
-    const stock = 10
     const [counter, setCounter] = useState (initial)
 
     const decrement = () =>{
@@ -22,6 +21,12 @@ const Counter = () =>{
             <button className="btn btn-outline-secondary mx-2" onClick={decrement}> - </button>
             <h5>{counter}</h5>
             <button className="btn btn-outline-secondary mx-2" onClick={increment}> + </button>
+            
+            <span>
+                
+                <button className="btn btn-danger" style={{display: "inline-block" } } onClick={() => onConfirm(counter)}>Agregar al carrito</button>
+            </span>
+            
             </div>
         </div>
 
@@ -29,4 +34,4 @@ const Counter = () =>{
 
 
 }
-export default Counter
+export default ItemCount
