@@ -3,11 +3,12 @@ import { CartContext } from "../../context/CartContext"
 import { getDocs, addDoc, collection, doc, updateDoc, where, query, documentId, writeBatch } from 'firebase/firestore'
 import { db } from '../../services/firebase'
 import CheckoutForm from "../CheckoutForm/CheckoutForm"
-
+import Notiflix from 'notiflix'
 const Checkout = () => {
     const [loading, setLoading] = useState(false)
 
     const { cart, totalPay, cartClear } = useContext(CartContext)
+  const [id, setId] = useState(undefined)
 
     const createOrder = async () => {
         setLoading(true)
@@ -52,6 +53,7 @@ const Checkout = () => {
     
                 const orderRef = collection(db, 'orders')
                 const orderAdded = await addDoc(orderRef, objOrder)
+        setId(orderAdded.id)
                 return(
                     <div>
                         <h1> El id de su orden es: {orderAdded.id}</h1>
@@ -78,8 +80,16 @@ const Checkout = () => {
             <CheckoutForm>
                 
             </CheckoutForm>
-            <button onClick={createOrder}>Agregar documento</button>
-            
+            <button onClick={createOrder}>Enviar Orden</button>
+           {id ? Notiflix.Report.success(
+          '¡Orden enviada!',
+          `Su numero de orden es: ${id}`,
+          'Entendido!',
+          {
+            width: '360px',
+            svgSize: '120px',
+          },
+        ) : null} 
         </>
     )
 }

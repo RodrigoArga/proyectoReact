@@ -5,7 +5,8 @@ import NavBar from './components/NavBar/NavBar'
 import Cart from './components/Cart/Cart';
 import Checkout from './components/Checkout/Checkout';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
-import {CartContextProvider} from './context/CartContext'
+import {CartContextProvider} from './context/CartContext';
+import Backvid from './components/backVid';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
 
   return (
     <div className='App'>
+<Backvid/>
       <CartContextProvider>
       <BrowserRouter>
         <NavBar />
@@ -23,6 +25,7 @@ function App() {
             <Route path='/cart' element={<Cart/>} /> 
             <Route path='/checkout' element={<Checkout />} />
           </Routes>
+          
       </BrowserRouter>
       </CartContextProvider>
     </div>

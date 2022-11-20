@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom'
 import CartWidget from '../CartWidget/CartWidget'
-import './NavBar.css'
+
 
 const NavBar = () => {
     return (
-        <nav className="navbar navbar-expand-lg" style={{backgroundColor: "Black"}}>
+        <nav className="navbar navbar-expand-lg" style={{backgroundColor: ""}}>
             <div className="container-fluid">
                 <ul className="navbar-nav me-auto mb-2 mt-3 align-self-center">
                     <li className='nav-item'>
-                        <Link to={'/'}><h1 className='mx-2' style={{color: "#F2F5FA",backgroundColor:"blueviolet"}} >Travel Sense</h1></Link>
+                        <Link to={'/'}><h1 className='mx-2' style={{color: "rgba(0, 0, 0, 1)"}} >Travel Sense</h1></Link>
                     </li>
                     <li className='nav-item'>
                         <Link to={`/category/yungas`}>
